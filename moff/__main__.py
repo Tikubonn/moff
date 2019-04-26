@@ -1,6 +1,7 @@
 
 import argparse
 from .parser import Parser
+from pathlib import Path
 
 if __name__ == "__main__":
   argparser = argparse.ArgumentParser(
@@ -29,9 +30,19 @@ if __name__ == "__main__":
     type = argparse.FileType("w", encoding="utf-8"),
     default = "-"
   )
+  argparser.add_argument(
+    "--prefix-path",
+    help = "take an prefix path name for image, video and audio relative path."
+    dest = "prefix_path",
+    type = str,
+    default = ""
+  )
   arguments = argparser.parse_args()
   # main
   parser = Parser()
-  node = parser.parse(arguments.input_file)
+  options = {
+    "prefix_path": Path(arguments.prefix_path)
+  }
+  node = parser.parse(arguments.input_file, options=options)
   node.write(arguments.output_file)
   
