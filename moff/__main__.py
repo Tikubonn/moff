@@ -32,7 +32,7 @@ if __name__ == "__main__":
   )
   argparser.add_argument(
     "--prefix-path",
-    help = "take an prefix path name for image, video and audio relative path."
+    help = "take an prefix path name for image, video and audio relative path.",
     dest = "prefix_path",
     type = str,
     default = ""
@@ -45,4 +45,3 @@ if __name__ == "__main__":
   }
   node = parser.parse(arguments.input_file, options=options)
   node.write(arguments.output_file)
-  
