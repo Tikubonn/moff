@@ -1,0 +1,4 @@
+
+class EndLine (Exception):
+  
+  pass
