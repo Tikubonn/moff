@@ -4,7 +4,7 @@ from setuptools import setup
 setup(
   name = "moff",
   version = "1.0",
-  description = "Simple markdown like translator for HTML.",
+  description = "Moff is a markdown dialect that has supported picture, video and audio for multiple device.",
   author = "tikubonn",
   author_email = "https://twitter.com/tikubonn",
   licence = "MIT",
