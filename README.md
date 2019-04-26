@@ -81,6 +81,7 @@ Moff has supported these options.
 | ---- | ---- |
 | `--input-file` | take a file name for input. if you didn't use this option, Moff use the *standard-input*. | 
 | `--output-file` | take a file name for output. if you didn't use this option, Moff use the *standard-output*. | 
+| `--prefix-path` | take the prefix path that concatenate to picture, video and audio file path. | 
 
 ## Specification
 
