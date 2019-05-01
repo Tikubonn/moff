@@ -15,12 +15,11 @@ def __main ():
     version = "%(prog)s 1.0.0"
   )
   argparser.add_argument(
-    "-f",
-    "--input-file",
+    "input_file",
     help = "take an input file name. if you didn't use this option, moff use standard-input.",
-    dest = "input_file",
     type = FileType(mode="r", encoding="utf-8"),
-    default = "-"
+    default = "-",
+    nargs = "?"
   )
   argparser.add_argument(
     "-o",
