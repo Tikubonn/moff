@@ -1,10 +1,10 @@
 
-import argparse
-from .parser import Parser
+from argparse import ArgumentParser, FileType
+from moff.parser import Parser
 from pathlib import Path
 
-if __name__ == "__main__":
-  argparser = argparse.ArgumentParser(
+def main ():
+  argparser = ArgumentParser(
     description = "translate markdown like syntax to HTML."
   )
   argparser.add_argument(
@@ -12,14 +12,14 @@ if __name__ == "__main__":
     "--version",
     help = "print version and exit.",
     action = "version",
-    version = "moff version 0.9.0"
+    version = "%(prog)s 1.0.0"
   )
   argparser.add_argument(
     "-f",
     "--input-file",
     help = "take an input file name. if you didn't use this option, moff use standard-input.",
     dest = "input_file",
-    type = argparse.FileType("r", encoding="utf-8"),
+    type = FileType(mode="r", encoding="utf-8"),
     default = "-"
   )
   argparser.add_argument(
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     "--output-file",
     help = "take an output file name. if you didn't use this option, moff use standard-output.",
     dest = "output_file",
-    type = argparse.FileType("w", encoding="utf-8"),
+    type = FileType(mode="w", encoding="utf-8"),
     default = "-"
   )
   argparser.add_argument(
@@ -38,10 +38,11 @@ if __name__ == "__main__":
     default = ""
   )
   arguments = argparser.parse_args()
-  # main
-  parser = Parser()
+  # setup
   options = {
     "prefix_path": Path(arguments.prefix_path)
   }
-  node = parser.parse(arguments.input_file, options=options)
+  # parse and write
+  parser = Parser(options=options)
+  node = parser.parse(arguments.input_file)
   node.write(arguments.output_file)
