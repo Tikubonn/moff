@@ -19,7 +19,7 @@ setup(
   packages = find_packages(exclude=["tests"]),
   entry_points = {
     "console_scripts": [
-      "moff = moff_script.moff:main",
+      "moff = moff:main",
     ],
   },
   classifiers = [

@@ -6,3 +6,4 @@ from . import util
 from . import unit
 from . import attribute
 from . import mimetypes
+from .__main__ import main
