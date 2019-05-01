@@ -3,7 +3,7 @@ from argparse import ArgumentParser, FileType
 from moff.parser import Parser
 from pathlib import Path
 
-def main ():
+def __main ():
   argparser = ArgumentParser(
     description = "translate markdown like syntax to HTML."
   )
@@ -46,3 +46,9 @@ def main ():
   parser = Parser(options=options)
   node = parser.parse(arguments.input_file)
   node.write(arguments.output_file)
+
+def main ():
+  try:
+    __main()
+  except KeyboardInterrupt:
+    pass
