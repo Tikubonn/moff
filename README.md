@@ -66,18 +66,25 @@ with open("input.mh", "r") as instream:
 ## Using with shell.
 
 Moff install a global command to your computer when you installed this. so you can call Moff with this command.
+Moff has supported execute with python module command since new version.
 
-```bash
-moff --input-file "input.mh" --output-file "output.html"
+```shell
+moff "input.mh" --output-file "output.html"
 ```
 
-Moff has supported these options.
+```shell
+python -m moff "input.mh" --output-file "output.html"
+```
 
-| オプション | 概要 | 
+Moff has supported these arguments.
+
+| Argument | Description | 
 | ---- | ---- |
-| `--input-file` | take a file name for input. if you didn't use this option, Moff use the *standard-input*. | 
-| `--output-file` | take a file name for output. if you didn't use this option, Moff use the *standard-output*. | 
+| `input file` | take a file name for input. if you didn't use this option, Moff use the *standard-input*. | 
+| `--output-file` or `-o` | take a file name for output. if you didn't use this option, Moff use the *standard-output*. | 
 | `--prefix-path` | take the prefix path that concatenate to picture, video and audio file path. | 
+| `--version` or `-v` | print this command version then exit. | 
+| `--help` or `-h` | print this command descriptions then exit. | 
 
 ## Specification
 
