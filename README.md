@@ -65,14 +65,10 @@ with open("input.mh", "r") as instream:
 
 ## Using with shell.
 
-you can execute Moff from shell, because Moff prepared `__main__.py`.
+Moff install a global command to your computer when you installed this. so you can call Moff with this command.
 
 ```bash
-python -m moff
-```
-
-```bash
-python -m moff --input-file "input.mh" --output-file "output.html"
+moff --input-file "input.mh" --output-file "output.html"
 ```
 
 Moff has supported these options.

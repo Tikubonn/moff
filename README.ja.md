@@ -67,11 +67,8 @@ with open("入力ファイル", "r") as instream:
 
 ## コマンドラインから利用
 
-Moffは`__main__.py`が用意されていますので、コマンドラインから呼び出すことができます。
-
-```bash
-python -m moff
-```
+Moffはグローバルコマンドもインストールします。
+そのため、下記のようにコマンドラインから呼び出すことができます。
 
 ```bash
 python -m moff --input-file "入力ファイル" --output-file "出力ファイル"
