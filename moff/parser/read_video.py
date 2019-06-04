@@ -1,13 +1,13 @@
 
 from moff.builder import VideoBuilder, VideoSource, VideoSourceAdapter, VideoThumbnailAdapter
-from moff.util import read_line, read_until, read_whitespace, fix_pathname
+from moff.util import read_line, read_until, read_whitespace, fix_path
 
 # @video path
 def read_video (preread, stream, indentation, parser, options=dict()):
   read1 = read_line(stream).strip()
   video = VideoBuilder()
   if read1:
-    path = fix_pathname(read1)
+    path = fix_path(read1)
     source = VideoSource(src=path)
     video.add_source(source)
   return video
@@ -19,7 +19,7 @@ def read_video_src (preread, stream, indentation, parser, options=dict()):
   read2 = read_line(stream).strip()
   return VideoSourceAdapter(
     VideoSource(
-      src = fix_pathname(read1),
+      src = fix_path(read1),
       type = read2 if read2 else None
     ))
 

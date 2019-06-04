@@ -1,13 +1,13 @@
 
 from moff.builder import ImageBuilder, ImageAltAdapter, ImageTitleAdapter, ImageLinkAdapter, ImageCaseAdapter, ImageSrcCaseAdapter, ImageSizeCaseAdapter, ImageMediaCaseAdapter, ImageTypeCaseAdapter
 from moff.attribute import Srcset, Sizes
-from moff.util import read_until, read_whitespace, read_line, read_media_query, read_srcset_case, fix_pathname
+from moff.util import read_until, read_whitespace, read_line, read_media_query, read_srcset_case, fix_path
 
 # @image path
 
 def read_image (preread, stream, indentation, parser, options=dict()):
   read1 = read_line(stream).strip()
-  return ImageBuilder(src=fix_pathname(read1))
+  return ImageBuilder(src=fix_path(read1, options=options))
 
 # @image @alt ...
 
@@ -25,7 +25,7 @@ def read_image_title (preread, stream, indentation, parser, options=dict()):
 
 def read_image_link (preread, stream, indentation, parser, options=dict()):
   read1 = read_line(stream).strip()
-  return ImageLinkAdapter(fix_pathname(read1))
+  return ImageLinkAdapter(fix_path(read1, options=options))
 
 # @image @case
 
@@ -38,7 +38,7 @@ def read_image_srccase (preread, stream, indentation, parser, options=dict()):
   src = read_until(stream, " ", use_escape=True, eof_is_error=True).strip()
   read_whitespace(stream)
   width = read_srcset_case(stream)
-  return ImageSrcCaseAdapter(Srcset(src=fix_pathname(src), width=width))
+  return ImageSrcCaseAdapter(Srcset(src=fix_path(src), width=width))
 
 # @image @case @type 
 

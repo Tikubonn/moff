@@ -7,4 +7,4 @@ from .read_media_query import read_media_query
 from .read_until_string import read_until_string
 from .escape_with_backslash import escape_with_backslash
 from .read_srcset_case import read_srcset_case
-from .fix_pathname import fix_pathname
+from .fix_path import fix_path
