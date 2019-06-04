@@ -6,13 +6,14 @@ with open("README.md", mode="r", encoding="utf-8") as stream:
 
 setup(
   name = "moff",
-  version = "1.0.0",
+  version = "1.0.1",
   description = "Moff is a markdown dialect that has supported picture, video and audio for multiple device.",
   long_description = long_description,
-  licence = "MIT",
+  long_description_content_type = "text/markdown",
   author = "tikubonn",
   author_email = "https://twitter.com/tikubonn",
   url = "https://github.com/tikubonn/moff",
+  licence = "MIT",
   install_requires = [],
   dependency_links = [],
   test_suite = "tests",
