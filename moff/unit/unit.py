@@ -1,8 +1,9 @@
 
 from abc import ABC, abstractmethod
 
+
 class Unit (ABC):
-  
-  @abstractmethod
-  def write (self, stream):
-    pass
+
+    @abstractmethod
+    def write(self, stream):
+        pass
